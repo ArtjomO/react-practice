@@ -7,9 +7,9 @@ import Header from './components/Header';
 
 class App extends React.Component {
     render() {
-        let user = {
+        const user = {
             name: "Anna",
-            hobby: ["sports"]
+            hobbies: ["sports"]
         }
 
         return (
