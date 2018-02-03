@@ -1,6 +1,6 @@
 import React from "react";
-
-import shortid from "shortid"
+import PropTypes from "prop-types";
+import shortid from "shortid";
 
  class Home extends React.Component {
     render(){
@@ -20,8 +20,8 @@ import shortid from "shortid"
     }
 };
 
-Home.propTypes = {
-    name: React.PropTypes.number
+Home.PropTypes = {
+    name: PropTypes.string
 }
 
 export default Home;
