@@ -15,13 +15,18 @@ import shortid from "shortid";
                         {this.props.user.hobbies.map((hobby, i) => <li key={shortid.generate()}>{hobby}</li>)}
                     </ul>
                 </div>
+                <hr/>
+                <p>{this.props.children}</p>
             </div>
         )
     }
 };
 
 Home.PropTypes = {
-    name: PropTypes.string
+    name: PropTypes.string,
+    age: PropTypes.number,
+    user: PropTypes.object,
+    children: PropTypes.element.isRequired
 }
 
 export default Home;
