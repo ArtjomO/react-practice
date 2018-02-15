@@ -6,18 +6,38 @@ import Header from './components/Header';
 
 
 class App extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            link: "Home"
+        }
+    };
+
+    onChangeLinkName(newName){
+        console.log(newName)
+        this.setState({
+            link: newName
+        })
+
+    };
+
+    onGreet() {
+        alert("hello")
+    };
+
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Header />
+                        <Header homeLink={this.state.link} change={this.onChangeLinkName}/>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name={8} age={27} />
+                        <Home name={8} initialAge={27} greet={this.onGreet} />
                     </div>
                 </div>
             </div>

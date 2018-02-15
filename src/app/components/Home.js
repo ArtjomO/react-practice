@@ -1,31 +1,47 @@
 import React from "react";
 import PropTypes from "prop-types";
 import shortid from "shortid";
+import Header from './Header';
 
  class Home extends React.Component {
+    //  in consructor, you write the code that will be executed straght away when it will be rendered (or not?)
      constructor(props){
         super();
-        this.age = props.age;
+        this.state = {
+            age: props.initialAge,
+            status: 0
+        };
+
+        // props.greet() // function passed from parent component
+
+        setTimeout(() => {
+            this.setState({
+                status: "status was changed"
+            })
+        }, 3000)
      };
      
-     state = {
-         age: this.age
-     }
-
+    //  out of constructor you write code that you want to be executed later (or not?)
      onMakeOlder() {
-        console.log(this.age)
         this.setState({
-            age: this.age + this.state.age
-        })
-    }
+            age: this.state.age + 3
+        });
+    };
      
+    kek = "some shiet"
+    
      render(){
         return (
             <div>
                 <p>In a new component</p>
                 <p>Your name is {this.props.name}, and you age is {this.state.age}</p>
+                <p>Home propertie: {this.props.initialAge}</p>
+                <p>Status: {this.state.status}</p>
                 <hr/>
-                <button className="button-primary" onClick={this.onMakeOlder.bind(this)}>Make me older!</button>
+                <button className="btn btn-primary" onClick={this.onMakeOlder.bind(this)}>Make me older!</button>
+                <hr/>
+                <button className="btn btn-success" onClick={this.props.greet}>Say hello</button>
+                {this.kek}
             </div>
 
         )
@@ -34,7 +50,8 @@ import shortid from "shortid";
 
 Home.PropTypes = {
     name: PropTypes.string,
-    age: PropTypes.number
+    initialAge: PropTypes.number,
+    greet: PropTypes.func
 }
 
 export default Home;
