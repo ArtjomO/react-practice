@@ -10,7 +10,6 @@ const Header = (props) => {
                     <div className="navbar-header">
                         <ul className="nav navbar-nav">
                             <li><a href="#">{props.homeLink}</a></li>
-                            <li><input type="text" onChange={(e) => props.change(e.target.value)} /></li>
                         </ul>
                     </div>
                 </div>

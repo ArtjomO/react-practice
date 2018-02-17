@@ -15,10 +15,9 @@ class App extends React.Component {
     };
 
     onChangeLinkName(newName){
-        console.log(newName)
         this.setState({
             link: newName
-        })
+        });
 
     };
 
@@ -31,13 +30,17 @@ class App extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Header homeLink={this.state.link} change={this.onChangeLinkName}/>
+                        <Header homeLink={this.state.link} />
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name={8} initialAge={27} greet={this.onGreet} />
+                        <Home name={8}
+                                initialAge={27}
+                                greet={this.onGreet}
+                                change={this.onChangeLinkName.bind(this)}
+                           />
                     </div>
                 </div>
             </div>

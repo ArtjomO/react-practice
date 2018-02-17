@@ -27,12 +27,14 @@ import Header from './Header';
             age: this.state.age + 3
         });
     };
+
      
     kek = "some shiet"
     
      render(){
         return (
             <div>
+                <input type="text" onChange={(e) => this.props.change(e.target.value)} />
                 <p>In a new component</p>
                 <p>Your name is {this.props.name}, and you age is {this.state.age}</p>
                 <p>Home propertie: {this.props.initialAge}</p>
